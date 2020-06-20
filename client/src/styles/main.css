@@ -1,0 +1,39 @@
+.main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #88c77c;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-header__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-header__title {
+  color: #f3e850;
+}
+
+.main-header__register {
+  list-style: none;
+}
+
+.main-header__login {
+  list-style: none;
+}
+
+.main-header__student {
+  list-style: none;
+}
+
+.main-header__classroom {
+  list-style: none;
+}
+/*# sourceMappingURL=main.css.map */

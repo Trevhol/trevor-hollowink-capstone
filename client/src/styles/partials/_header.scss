@@ -1,0 +1,24 @@
+.main-header {
+  display: flex;
+  background-color: #88c77c;
+  align-items: center;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    color: #f3e850;
+  }
+  &__register {
+    list-style: none;
+  }
+  &__login {
+    list-style: none;
+  }
+  &__student {
+    list-style: none;
+  }
+  &__classroom {
+    list-style: none;
+  }
+}
