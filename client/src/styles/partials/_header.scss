@@ -1,23 +1,59 @@
 .main-header {
   display: flex;
-  background-color: #88c77c;
+  background-color: #ffffff;
   align-items: center;
+  margin: 0 auto;
+  height: 100px;
+  border-bottom: 1px solid #323232;
   &__list {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    width: 40%;
+  }
+  &__item:hover {
+    background-color: #afafaf;
+    border-radius: 8px;
   }
   &__title {
-    color: #f3e850;
+    color: #1358db;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
   }
   &__register {
     list-style: none;
   }
+  &__item {
+    color: #1358db;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 40px 0;
+  }
   &__login {
     list-style: none;
+    margin-right: 40px;
+    color: #1358db;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  &__logout {
+    margin-right: 40px;
+    color: #1358db;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 40px 0;
+  }
+  &__logout:hover {
+    background-color: #afafaf;
+    border-radius: 8px;
   }
   &__student {
     list-style: none;
   }
+
   &__classroom {
     list-style: none;
   }

@@ -2,31 +2,72 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #88c77c;
+  background-color: #ffffff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 auto;
+  height: 100px;
+  border-bottom: 1px solid #323232;
 }
 
 .main-header__list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 40%;
+}
+
+.main-header__item:hover {
+  background-color: #afafaf;
+  border-radius: 8px;
 }
 
 .main-header__title {
-  color: #f3e850;
+  color: #1358db;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
 }
 
 .main-header__register {
   list-style: none;
 }
 
+.main-header__item {
+  color: #1358db;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 40px 0;
+}
+
 .main-header__login {
   list-style: none;
+  margin-right: 40px;
+  color: #1358db;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-header__logout {
+  margin-right: 40px;
+  color: #1358db;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 40px 0;
+}
+
+.main-header__logout:hover {
+  background-color: #afafaf;
+  border-radius: 8px;
 }
 
 .main-header__student {
@@ -35,5 +76,178 @@
 
 .main-header__classroom {
   list-style: none;
+}
+
+.main-student {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  background-size: contain;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-student__label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #323232;
+  font-weight: 600;
+}
+
+.main-student__button {
+  color: #323232;
+  font-weight: 600;
+}
+
+.main-student__title {
+  border-bottom: 1px solid #323232;
+  width: 80%;
+  font-weight: 600;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-student__uploads {
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.main-student__uploads {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 260px;
+  margin: 20px 140px;
+  color: #1358db;
+}
+
+.main-student__list {
+  margin: 0 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-student__link {
+  width: 320px;
+}
+
+.main-student__image {
+  width: 320px;
+  border: 1px solid black;
+  padding: 8px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 20px 20px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 20px 20px 0px rgba(0, 0, 0, 0.4);
+  margin-bottom: 34px;
+  margin-right: 24px;
+}
+
+.main-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vh;
+  background-size: contain;
+  background-image: url("../assets/small.jpg");
+}
+
+.main-login__username {
+  color: black;
+}
+
+.main-login__password {
+  color: blue;
+}
+
+.main-login__title {
+  color: #1358db;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-login__wrapper {
+  margin-left: 420px;
+  margin-bottom: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 20px;
+  max-width: 320px;
+  background-color: white;
+  padding: 12px;
+}
+
+.main-login__button {
+  background-color: #1358db;
+  border: none;
+  margin-bottom: 24px;
+  margin-top: 24px;
+  height: 48px;
+  width: 220px;
+  border-radius: 12px;
+  color: #ffffff;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+#file-upload-button {
+  color: blue;
+}
+
+a {
+  width: 320px;
 }
 /*# sourceMappingURL=main.css.map */
