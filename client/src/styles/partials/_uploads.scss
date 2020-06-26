@@ -1,0 +1,17 @@
+.main-uploads {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+    url("../assets/chalkboard-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 0 180px;
+  &__title {
+    font-family: "Chalktastic";
+    color: #ffffff;
+    margin-bottom: 50px;
+    font-weight: 500;
+  }
+}

@@ -1,14 +1,37 @@
+/*
+  FONTS
+*/
+@font-face {
+  font-family: "Chalktastic";
+  src: url(../assets/fonts/chalktastic.ttf);
+}
+
+@font-face {
+  font-family: "Chalktastic2";
+  src: url(../assets/fonts/Chalktastic2.ttf);
+}
+
+@font-face {
+  font-family: "Chalktastic3";
+  src: url(../assets/fonts/Chalktastic3.ttf);
+}
+
+@font-face {
+  font-family: "Chalktastic4";
+  src: url(../assets/fonts/Chalktastic4.ttf);
+}
+
 .main-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #ffffff;
+  background-color: white;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 0 auto;
   height: 100px;
-  border-bottom: 1px solid #323232;
+  padding: 0 180px;
 }
 
 .main-header__list {
@@ -22,18 +45,22 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 40%;
+  width: 80%;
 }
 
 .main-header__item:hover {
-  background-color: #afafaf;
+  background-color: black;
+  color: #ffffff;
   border-radius: 8px;
 }
 
 .main-header__title {
-  color: #1358db;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0 auto;
+  color: #black;
+  font-family: "Chalktastic";
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+  margin-right: 100px;
 }
 
 .main-header__register {
@@ -41,32 +68,34 @@
 }
 
 .main-header__item {
-  color: #1358db;
-  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-family: "Chalktastic";
   font-size: 1rem;
   font-weight: 600;
-  padding: 40px 0;
+  padding: 42px 12px;
+  margin-right: 24px;
 }
 
 .main-header__login {
   list-style: none;
   margin-right: 40px;
-  color: #1358db;
+  color: black;
   font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Chalktastic";
 }
 
 .main-header__logout {
   margin-right: 40px;
-  color: #1358db;
-  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  font-family: "Chalktastic";
   font-size: 1rem;
   font-weight: 600;
   padding: 40px 0;
 }
 
 .main-header__logout:hover {
-  background-color: #afafaf;
+  background-color: black;
+  color: #ffffff;
   border-radius: 8px;
 }
 
@@ -82,11 +111,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.2))), url("../assets/chalkboard-1.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("../assets/chalkboard-1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
-  background-size: contain;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -99,21 +129,66 @@
           align-items: center;
 }
 
+.main-student__label:hover {
+  color: black;
+  background-color: white;
+}
+
 .main-student__label {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Chalktastic";
+  border: 1px solid white;
   font-size: 1rem;
-  color: #323232;
   font-weight: 600;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 12px;
+  color: #ffffff;
 }
 
 .main-student__button {
   color: #323232;
+  margin-top: 20px;
   font-weight: 600;
 }
 
+.main-student__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-student__submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: 32px;
+  font-family: "Chalktastic";
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.main-student__submit:hover {
+  color: black;
+  background-color: #ffffff;
+}
+
 .main-student__title {
-  border-bottom: 1px solid #323232;
-  width: 80%;
+  font-family: "Chalktastic";
+  color: #ffffff;
   font-weight: 600;
   -ms-flex-item-align: center;
       align-self: center;
@@ -123,6 +198,11 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 50px;
+}
+
+.main-student__wrapper {
+  margin: 20px 180px;
 }
 
 .main-student__uploads {
@@ -134,13 +214,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 260px;
-  margin: 20px 140px;
-  color: #1358db;
+  width: 320px;
+  font-family: "Chalktastic";
+  color: #ffffff;
 }
 
 .main-student__list {
-  margin: 0 140px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,9 +236,10 @@
 
 .main-student__image {
   width: 320px;
-  border: 1px solid black;
-  padding: 8px;
-  border-radius: 10px;
+  height: 412px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
   -webkit-box-shadow: 0 20px 20px 0px rgba(0, 0, 0, 0.4);
           box-shadow: 0 20px 20px 0px rgba(0, 0, 0, 0.4);
   margin-bottom: 34px;
@@ -167,6 +247,7 @@
 }
 
 .main-login {
+  background-image: url("../assets/greenchalk.png");
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -177,32 +258,72 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
-  min-width: 100vh;
-  background-size: contain;
-  background-image: url("../assets/small.jpg");
 }
 
 .main-login__username {
-  color: black;
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-login__username::-webkit-input-placeholder {
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-login__username:-ms-input-placeholder {
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-login__username::-ms-input-placeholder {
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-login__username::placeholder {
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-login__password::-webkit-input-placeholder {
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-login__password:-ms-input-placeholder {
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-login__password::-ms-input-placeholder {
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-login__password::placeholder {
+  color: #ffffff;
+  font-family: "Chalktastic";
 }
 
 .main-login__password {
-  color: blue;
+  color: white;
 }
 
 .main-login__title {
-  color: #1358db;
+  color: #ffffff;
   font-weight: 500;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Chalktastic";
 }
 
 .main-login__wrapper {
-  margin-left: 420px;
-  margin-bottom: 200px;
+  margin-bottom: 160px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -219,23 +340,209 @@
   border-radius: 20px;
   max-width: 320px;
   background-color: white;
+  background: none;
   padding: 12px;
 }
 
 .main-login__button {
-  background-color: #1358db;
+  font-family: "Chalktastic";
+  font-size: 1.5rem;
+  color: #ffffff;
+  background: none;
   border: none;
   margin-bottom: 24px;
   margin-top: 24px;
   height: 48px;
   width: 220px;
   border-radius: 12px;
+}
+
+.main-login__button:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.main-register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-classroom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.2))), url("../assets/chalkboard-1.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("../assets/chalkboard-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 0 180px;
+  min-height: 100vh;
+}
+
+.main-classroom__title {
+  margin: 0;
+  margin-bottom: 44px;
+  font-family: "Chalktastic";
   color: #ffffff;
+  margin-top: 34px;
+}
+
+.main-classroom__submit {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 0;
+  margin-top: 32px;
+  font-family: "Chalktastic";
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.main-classroom__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-classroom__submit:hover {
+  color: black;
+  background-color: #ffffff;
+}
+
+.main-classroom__label:hover {
+  color: black;
+  background-color: white;
+}
+
+.main-classroom__label {
+  font-family: "Chalktastic";
+  border: 1px solid white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 12px;
+  color: #ffffff;
+}
+
+.main-classroom__download {
+  margin-top: 24px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Chalktastic";
+}
+
+.main-classroom__download:hover {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #ffffff;
+  color: black;
+  width: 220px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.my-classroom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url("../assets/greenchalk.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.my-classroom__title {
+  font-family: "Chalktastic";
+  border-bottom: 4px solid #ffffff;
+  color: #ffffff;
+}
+
+.my-classroom__username {
+  font-family: "Chalktastic";
+  color: #ffffff;
+}
+
+.my-classroom__button {
+  background: none;
+  border: none;
+  font-family: "Chalktastic";
+  color: #ffffff;
+}
+
+.my-classroom__button:hover {
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-left: 20px;
+  border: none;
+  background: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.main-uploads {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.2))), url("../assets/chalkboard-1.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("../assets/chalkboard-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 0 180px;
+}
+
+.main-uploads__title {
+  font-family: "Chalktastic";
+  color: #ffffff;
+  margin-bottom: 50px;
+  font-weight: 500;
 }
 
 html,
 body {
   margin: 0;
+  text-align: center;
 }
 
 ul {
@@ -245,6 +552,11 @@ ul {
 
 #file-upload-button {
   color: blue;
+  display: none;
+}
+
+input[type="file"] {
+  display: none;
 }
 
 a {

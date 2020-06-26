@@ -34,7 +34,7 @@ export class Home extends Component {
 
   getUploads = () => {
     axios
-      .get("http://localhost:5000/teacher-uploads/", {
+      .get("/teacher-uploads/", {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -52,7 +52,7 @@ export class Home extends Component {
     data.append("file", this.state.selectedFile, this.state.selectedFile.name);
 
     axios
-      .post("http://localhost:5000/teacher-upload", data)
+      .post("/teacher-upload", data)
       .then(this.getUploads)
       .catch(console.error);
   };
@@ -60,53 +60,63 @@ export class Home extends Component {
   render() {
     return (
       <div className="main-classroom">
-        <form
-          onSubmit={this.handleFormSubmit}
-          method="post"
-          encType="multipart/form-data"
-        >
-          <div>
-            <label htmlFor="profile_pic">Upload your assignment</label>
-            <input
-              type="file"
-              onChange={this.onFileChange}
-              id="profile_pic"
-              name="profile_pic"
-              accept=".jpg, .jpeg, .png, .pdf, .doc"
-            ></input>
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-          <div>
-            {this.state.uploads.map((upload) => {
-              const image = `http://localhost:5000/uploads/teacher/${upload}`;
-              const link = `http://localhost:5000/assignment-download/${upload}`;
-              if (isImage(upload)) {
+        <h1 className="main-classroom__title">Your Homework</h1>
+        <div className="main-classroom__wrapper">
+          <form
+            onSubmit={this.handleFormSubmit}
+            method="post"
+            encType="multipart/form-data"
+            className="main-student__form"
+          >
+            <div>
+              <label className="main-classroom__label" htmlFor="profile_pic">
+                Upload Assignments
+              </label>
+              <input
+                type="file"
+                onChange={this.onFileChange}
+                id="profile_pic"
+                name="profile_pic"
+                accept=".jpg, .jpeg, .png, .pdf, .doc"
+              ></input>
+            </div>
+            <div>
+              <button className="main-classroom__submit" type="submit">
+                Submit
+              </button>
+            </div>
+            <div className="main-student__list">
+              {this.state.uploads.map((upload) => {
+                const image = `/uploads/teacher/${upload}`;
+                const link = `/assignment-download/${upload}`;
+                if (isImage(upload)) {
+                  return (
+                    <div key={upload}>
+                      <a href={link}>
+                        <p className="main-classroom__download">
+                          DOWNLOAD ASSIGNMENT
+                        </p>
+                        <img className="main-student__image" src={image} />
+                      </a>
+                    </div>
+                  );
+                }
+
                 return (
                   <div key={upload}>
-                    <a href={link}>
-                      <p>Get your assignment here</p>
-                      <img src={image} />
+                    <a download href={link}>
+                      <p>
+                        Get your assignment here
+                        <br />
+                        {upload}
+                      </p>
                     </a>
                   </div>
                 );
-              }
-
-              return (
-                <div key={upload}>
-                  <a download href={link}>
-                    <p>
-                      Get your assignment here
-                      <br />
-                      {upload}
-                    </p>
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-        </form>
+              })}
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

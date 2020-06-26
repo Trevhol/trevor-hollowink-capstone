@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd client/ && npm start",
+    "server": "nodemon server/server.js",
+    "setup": "npm install && npm run build",
+    "build": "cd client/ && npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "12.16.1"
+  },
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.4",
+    "uuidv4": "^6.1.0"
+  }
+}

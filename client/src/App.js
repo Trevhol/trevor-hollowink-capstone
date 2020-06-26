@@ -20,7 +20,11 @@ const ProtectedRoute = ({ isLoggedIn, component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        isLoggedIn ? <Component {...props} /> : <Redirect to="/login" />
+        isLoggedIn === false ? (
+          <Redirect to="/login" />
+        ) : (
+          <Component {...props} />
+        )
       }
     ></Route>
   );
@@ -29,23 +33,31 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: null,
     };
   }
 
   componentDidMount() {
     try {
       const { username, password } = JSON.parse(localStorage.getItem("user"));
-
+      console.log("username", username);
       if (username && password) {
         this.setState({ isLoggedIn: true });
+      } else {
+        this.setState({ isLoggedIn: false });
       }
     } catch (e) {
+      console.error(
+        "error when trying to get login details from localstorage",
+        e
+      );
+      this.setState({ isLoggedIn: false });
       // noop
     }
   }
 
   loggedIn = (isLoggedIn) => {
+    console.log(this.state.isLoggedIn, isLoggedIn);
     this.setState({ isLoggedIn });
   };
 

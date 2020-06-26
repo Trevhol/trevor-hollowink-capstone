@@ -8,7 +8,7 @@ const Header = ({ isLoggedIn, loggedIn }) => {
   };
   return (
     <header className="main-header">
-      <h1 className="main-header__title">My Home Room</h1>
+      <h1 className="main-header__title">MyHomeRoom</h1>
       <ul className="main-header__list">
         <li>
           <NavLink className="main-header__item" to="/" exact>

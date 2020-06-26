@@ -7,7 +7,7 @@ export class MyClass extends Component {
     users: [],
   };
   componentDidMount() {
-    axios.get("http://localhost:5000/users").then((res) => {
+    axios.get("/users").then((res) => {
       console.log(res.data);
       this.setState({
         users: res.data,
@@ -21,22 +21,25 @@ export class MyClass extends Component {
     }
 
     return (
-      <ul>
-        <h1>ALL USERS</h1>
-        {this.state.users.users.map((user) => {
-          // const { users } = name;
-          return (
-            <div>
-              <h3>{user.username}</h3>
-              <Link to={`/student/${user.userId}`} exact>
-                <button className="main-class__button">
-                  Check Students Uploads
-                </button>
-              </Link>
-            </div>
-          );
-        })}
-      </ul>
+      <div className="my-classroom">
+        <ul>
+          <h1 className="my-classroom__title">ALL STUDENTS</h1>
+
+          {this.state.users.users.map((user) => {
+            // const { users } = name;
+            return (
+              <div>
+                <h3 className="my-classroom__username">{user.username}</h3>
+                <Link to={`/student/${user.userId}`}>
+                  <button className="my-classroom__button">
+                    Check Submissions
+                  </button>
+                </Link>
+              </div>
+            );
+          })}
+        </ul>
+      </div>
     );
   }
 }

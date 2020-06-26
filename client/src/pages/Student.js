@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PDF from "../components/PDF";
 
 const isImage = (fileName) => {
   const extension = fileName.split(".")[1];
@@ -9,6 +10,16 @@ const isImage = (fileName) => {
     extension.includes("png");
 
   return isImage;
+};
+
+const isPdf = (fileName) => {
+  const extension = fileName.split(".")[1];
+
+  return extension === "pdf";
+};
+
+const test = {
+  color: `blue`,
 };
 
 export class Student extends Component {
@@ -34,7 +45,7 @@ export class Student extends Component {
     const { username } = JSON.parse(localStorage.getItem("user"));
 
     axios
-      .get(`http://localhost:5000/uploads/${username}/`, {
+      .get(`/uploads/${username}/`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -53,7 +64,7 @@ export class Student extends Component {
     const { username } = JSON.parse(localStorage.getItem("user"));
 
     axios
-      .post(`http://localhost:5000/upload/${username}`, data)
+      .post(`/upload/${username}`, data)
       .then((res) => {
         this.setState({ uploads: [res.data, ...this.state.uploads] });
       })
@@ -75,26 +86,30 @@ export class Student extends Component {
           >
             <div>
               <label className="main-student__label" htmlFor="profile_pic">
-                Upload your assignment
+                TURN IN YOUR HOMEWORK!
               </label>
               <input
                 className="main-student__button"
+                style={test}
                 type="file"
                 onChange={this.onFileChange}
-                name="profile_pic"
+                id="profile_pic"
                 accept=".jpg, .jpeg, .png, .pdf, .doc"
               ></input>
             </div>
             <div>
-              <button type="submit">Submit</button>
+              <button className="main-student__submit" type="submit">
+                Submit
+              </button>
+              <div></div>
             </div>
           </form>
           <div className="main-student__wrapper">
             <h2 className="main-student__uploads">My Homework</h2>
             <ul className="main-student__list">
               {this.state.uploads.map((upload) => {
-                const image = `http://localhost:5000/uploads/student/${upload}`;
-                const link = `http://localhost:5000/download/${upload}`;
+                const image = `http://localhost:5000/public/uploads/student/${upload}`;
+                const link = `http://localhost:5000/public/download/${upload}`;
                 if (isImage(upload)) {
                   return (
                     <li className="main-student__content" key={upload}>
@@ -102,6 +117,17 @@ export class Student extends Component {
                         <img className="main-student__image" src={image} />
                       </a>
                     </li>
+                  );
+                }
+
+                if (isPdf(upload)) {
+                  console.log("pdf", upload, image);
+                  return (
+                    <PDF
+                      key={upload}
+                      className="main-student__image"
+                      url={image}
+                    />
                   );
                 }
 

@@ -1,40 +1,66 @@
 .main-student {
   display: flex;
-  // background-image: url("../assets/small.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+    url("../assets/chalkboard-1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
-  background-size: contain;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  &__content {
-    // max-width: 250px;
+  &__label:hover {
+    color: black;
+    background-color: white;
   }
   &__label {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Chalktastic";
+    border: 1px solid white;
     font-size: 1rem;
-    // color: #1358db;
-    color: #323232;
     font-weight: 600;
+    cursor: pointer;
+    padding: 16px;
+    border-radius: 12px;
+    color: #ffffff;
   }
   &__button {
-    // color: blue;
     color: #323232;
+    margin-top: 20px;
     font-weight: 600;
   }
   &__form {
-    // background-color: #afafaf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__submit {
+    display: flex;
+    align-self: center;
+    margin-top: 32px;
+    font-family: "Chalktastic";
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  &__submit:hover {
+    color: black;
+    background-color: #ffffff;
   }
   &__title {
-    // color: #1358db;
-    border-bottom: 1px solid #323232;
-    width: 80%;
+    font-family: "Chalktastic";
+    color: #ffffff;
     font-weight: 600;
     align-self: center;
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
+  }
+  &__wrapper {
+    margin: 20px 180px;
   }
   &__uploads {
     font-weight: 600;
@@ -42,14 +68,11 @@
   }
   &__uploads {
     display: flex;
-    width: 260px;
-    margin: 20px 140px;
-    color: #1358db;
+    width: 320px;
+    font-family: "Chalktastic";
+    color: #ffffff;
   }
   &__list {
-    // border: 1px solid green;
-    margin: 0 140px;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -59,9 +82,9 @@
   }
   &__image {
     width: 320px;
-    border: 1px solid black;
-    padding: 8px;
-    border-radius: 10px;
+    height: 412px;
+    object-fit: cover;
+    border-radius: 20px;
     box-shadow: 0 20px 20px 0px rgba(0, 0.4, 0, 0.4);
     margin-bottom: 34px;
     margin-right: 24px;
