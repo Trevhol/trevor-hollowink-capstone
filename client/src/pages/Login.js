@@ -13,7 +13,7 @@ export class Login extends Component {
 
   componentDidMount() {
     try {
-      const { username, password } = JSON.parse(localStorage.getItem("user"));
+      const { username, password } = localStorage.getItem("user");
 
       if (username && password) {
         this.setState({ username, password });

@@ -20,7 +20,7 @@ const ProtectedRoute = ({ isLoggedIn, component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        isLoggedIn === false ? (
+        isLoggedIn !== true ? (
           <Redirect to="/login" />
         ) : (
           <Component {...props} />
@@ -64,7 +64,7 @@ class App extends Component {
   render() {
     const LoginComponent = () => <Login loggedIn={this.loggedIn} />;
     const RegisterComponent = () => <Register loggedIn={this.loggedIn} />;
-
+    console.log(this.state.isLoggedIn);
     return (
       <Router>
         <Header isLoggedIn={this.state.isLoggedIn} loggedIn={this.loggedIn} />

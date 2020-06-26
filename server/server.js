@@ -6,6 +6,7 @@ const multer = require("multer");
 const { uuid } = require("uuidv4");
 const { allUsers, usersId } = require("./routes/users");
 const { response } = require("express");
+const e = require("express");
 const app = express();
 // const PORT = process.env.PORT || 5000;
 app.use(express.json());
@@ -59,12 +60,13 @@ app.get("/uploads/:id", (req, res) => {
   const username = req.params.id;
   const { users } = require("./model/data.json");
   const user = users.filter((u) => u.username === username);
-  console.log(users);
+  console.log(user);
   if (user.length === 0) {
     res.status(403).send("You must be logged in to see uploads.");
+  } else {
+    console.log(user);
+    res.json({ files: user[0].uploads });
   }
-
-  res.json({ files: user[0].uploads });
 });
 
 app.get("/teacher-uploads", (req, res) => {
@@ -150,7 +152,7 @@ app.post("/login", (req, res) => {
 // push a new user to ./model/data
 app.post("/register", async (req, res) => {
   const { username, password } = JSON.parse(req.body.body);
-  const { users } = "./model/data.json";
+  const { users } = require("./model/data.json");
 
   const user = users.filter((u) => u.username === username);
 

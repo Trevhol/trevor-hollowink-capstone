@@ -34,7 +34,7 @@ export class Home extends Component {
 
   getUploads = () => {
     axios
-      .get("http:localhost:5000/teacher-uploads/", {
+      .get("http://localhost:5000/teacher-uploads/", {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -87,8 +87,8 @@ export class Home extends Component {
             </div>
             <div className="main-student__list">
               {this.state.uploads.map((upload) => {
-                const image = `/uploads/teacher/${upload}`;
-                const link = `/assignment-download/${upload}`;
+                const image = `http://localhost:5000/uploads/teacher/${upload}`;
+                const link = `http://localhost:5000/assignment-download/${upload}`;
                 if (isImage(upload)) {
                   return (
                     <div key={upload}>
