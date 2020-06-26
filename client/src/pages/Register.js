@@ -28,7 +28,7 @@ export class Register extends Component {
     const user = JSON.stringify({ username, password });
     if (username && password) {
       axios
-        .post("/register", {
+        .post("http://localhost:5000/register", {
           headers: {
             "Content-Type": "application/json",
           },

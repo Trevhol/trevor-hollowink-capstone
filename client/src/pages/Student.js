@@ -45,7 +45,7 @@ export class Student extends Component {
     const { username } = JSON.parse(localStorage.getItem("user"));
 
     axios
-      .get(`/uploads/${username}/`, {
+      .get(`http://localhost:5000/uploads/${username}/`, {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -64,7 +64,7 @@ export class Student extends Component {
     const { username } = JSON.parse(localStorage.getItem("user"));
 
     axios
-      .post(`/upload/${username}`, data)
+      .post(`http://localhost:5000/upload/${username}`, data)
       .then((res) => {
         this.setState({ uploads: [res.data, ...this.state.uploads] });
       })
@@ -108,8 +108,8 @@ export class Student extends Component {
             <h2 className="main-student__uploads">My Homework</h2>
             <ul className="main-student__list">
               {this.state.uploads.map((upload) => {
-                const image = `http://localhost:5000/public/uploads/student/${upload}`;
-                const link = `http://localhost:5000/public/download/${upload}`;
+                const image = `http://localhost:5000/uploads/student/${upload}`;
+                const link = `http://localhost:5000/download/${upload}`;
                 if (isImage(upload)) {
                   return (
                     <li className="main-student__content" key={upload}>

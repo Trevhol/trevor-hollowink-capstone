@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { uuid } = require("uuidv4");
 let userData = require("../model/data.json");
-const path = require("path");
+// const path = require("path");
 const allUsers = (req, res) => {
   res.json(userData);
 };
@@ -11,9 +11,7 @@ const usersId = (req, res) => {
   const { id } = req.params;
   // const id = req.params.id;
   //find location by id
-  const userData = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, "../model/data.json"))
-  ).users;
+  const userData = JSON.parse(fs.readFileSync("./model/data.json")).users;
   const student = userData.find((student) => student.userId == id);
   //return location
   res.json({ student });

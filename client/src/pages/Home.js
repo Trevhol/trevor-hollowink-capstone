@@ -34,7 +34,7 @@ export class Home extends Component {
 
   getUploads = () => {
     axios
-      .get("/teacher-uploads/", {
+      .get("http:localhost:5000/teacher-uploads/", {
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
@@ -52,7 +52,7 @@ export class Home extends Component {
     data.append("file", this.state.selectedFile, this.state.selectedFile.name);
 
     axios
-      .post("/teacher-upload", data)
+      .post("http://localhost:5000/teacher-upload", data)
       .then(this.getUploads)
       .catch(console.error);
   };

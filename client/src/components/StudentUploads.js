@@ -24,12 +24,14 @@ export class StudentUploads extends Component {
   };
   componentDidMount() {
     console.log(this.props.match.params.id);
-    axios.get(`/users/${this.props.match.params.id}`).then((res) => {
-      console.log(res.data);
-      this.setState({ user: res.data }, () => {
-        console.log(this.state);
+    axios
+      .get(`http://localhost:5000/users/${this.props.match.params.id}`)
+      .then((res) => {
+        console.log(res.data);
+        this.setState({ user: res.data }, () => {
+          console.log(this.state);
+        });
       });
-    });
   }
 
   render() {

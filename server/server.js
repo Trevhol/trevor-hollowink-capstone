@@ -7,11 +7,11 @@ const { uuid } = require("uuidv4");
 const { allUsers, usersId } = require("./routes/users");
 const { response } = require("express");
 const app = express();
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // serve static files, create react app build
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+// app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 const filename = (req, file, cb) => {
   const extension = file.mimetype.split("/")[1];
@@ -19,11 +19,11 @@ const filename = (req, file, cb) => {
 };
 
 const destination = (req, file, cb) => {
-  cb(null, path.resolve(__dirname, "./public/uploads/student"));
+  cb(null, "./public/uploads/student");
 };
 
 const teacherDestination = (req, file, cb) => {
-  cb(null, path.resolve(__dirname, "./public/uploads/teacher"));
+  cb(null, "./public/uploads/teacher");
 };
 
 const storage = multer.diskStorage({ filename, destination });
@@ -50,9 +50,7 @@ app.get("/", (req, res) => {
 app.get("/users", allUsers);
 
 app.get("/uploads", (req, res) => {
-  const files = fs.readdirSync(
-    path.resolve(__dirname, "./public/uploads/student")
-  );
+  const files = fs.readdirSync("./public/uploads/student");
 
   res.json({ files });
 });
@@ -70,15 +68,15 @@ app.get("/uploads/:id", (req, res) => {
 });
 
 app.get("/teacher-uploads", (req, res) => {
-  const dir = path.resolve(__dirname, "./public/uploads/teacher/");
+  const dir = "./public/uploads/teacher/";
   const files = fs.readdirSync(dir);
   console.log("files", files);
   console.log("dir", dir);
   files
     .sort(
       (a, b) =>
-        fs.statSync(dir + "/" + a).mtime.getTime() -
-        fs.statSync(dir + "/" + b).mtime.getTime()
+        fs.statSync(dir + a).mtime.getTime() -
+        fs.statSync(dir + b).mtime.getTime()
     )
     .reverse();
 
@@ -89,7 +87,7 @@ app.post("/upload/:id", upload.single("file"), async (req, res) => {
   const username = req.params.id;
   const filename = req.file.filename;
 
-  const { users } = require(path.resolve(__dirname, "./model/data.json"));
+  const { users } = require("./model/data.json");
 
   const user = users.filter((u) => u.username === username);
 
@@ -110,7 +108,7 @@ app.post("/upload/:id", upload.single("file"), async (req, res) => {
     });
 
     await fs.writeFileSync(
-      path.resolve(__dirname, "./model/data.json"),
+      "./model/data.json",
       JSON.stringify({ users: newUsers })
     );
 
@@ -138,7 +136,7 @@ app.get("/assignment-download/:id", (req, res) => {
 // checks user/pass of user in model/data
 app.post("/login", (req, res) => {
   const { username, password } = JSON.parse(req.body.body);
-  const { users } = require(path.resolve(__dirname, "./model/data.json"));
+  const { users } = require("./model/data.json");
 
   const user = users.filter((u) => u.username === username);
 
@@ -152,7 +150,7 @@ app.post("/login", (req, res) => {
 // push a new user to ./model/data
 app.post("/register", async (req, res) => {
   const { username, password } = JSON.parse(req.body.body);
-  const { users } = require(path.resolve(__dirname, "./model/data.json"));
+  const { users } = "./model/data.json";
 
   const user = users.filter((u) => u.username === username);
 
@@ -170,7 +168,7 @@ app.post("/register", async (req, res) => {
       const newUsers = [...users, newUser];
 
       fs.writeFileSync(
-        path.resolve(__dirname, "./model/data.json"),
+        "./model/data.json",
         JSON.stringify({ users: newUsers })
       );
 
@@ -186,4 +184,4 @@ app.post("/register", async (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 // });
 
-app.listen(PORT);
+app.listen(5000);

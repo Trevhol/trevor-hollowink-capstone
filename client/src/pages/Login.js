@@ -40,7 +40,7 @@ export class Login extends Component {
     const user = JSON.stringify({ username, password });
     if (username && password) {
       axios
-        .post("/login", {
+        .post("http://localhost:5000/login", {
           headers: {
             "Content-Type": "application/json",
           },
