@@ -5,7 +5,11 @@ const PDF = ({ url }) => {
   return (
     <div>
       <a href={url}>
-        <img className="main-student__image" src={pdf} />
+        <img
+          className="main-student__image"
+          src={pdf}
+          alt="students homework"
+        />
       </a>
     </div>
   );

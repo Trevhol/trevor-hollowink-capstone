@@ -8,14 +8,12 @@ export class MyClass extends Component {
   };
   componentDidMount() {
     axios.get("http://localhost:5000/users").then((res) => {
-      console.log(res.data);
       this.setState({
         users: res.data,
       });
     });
   }
   render() {
-    console.log(this.state.users);
     if (this.state.users.length === 0) {
       return <p>loading</p>;
     }
@@ -25,10 +23,10 @@ export class MyClass extends Component {
         <ul>
           <h1 className="my-classroom__title">ALL STUDENTS</h1>
 
-          {this.state.users.users.map((user) => {
+          {this.state.users.users.map((user, id) => {
             // const { users } = name;
             return (
-              <div>
+              <div className="my-classroom__wrapper" key={id}>
                 <h3 className="my-classroom__username">{user.username}</h3>
                 <Link to={`/student/${user.userId}`}>
                   <button className="my-classroom__button">

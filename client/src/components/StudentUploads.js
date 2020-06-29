@@ -23,19 +23,14 @@ export class StudentUploads extends Component {
     user: [],
   };
   componentDidMount() {
-    console.log(this.props.match.params.id);
     axios
       .get(`http://localhost:5000/users/${this.props.match.params.id}`)
       .then((res) => {
-        console.log(res.data);
-        this.setState({ user: res.data }, () => {
-          console.log(this.state);
-        });
+        this.setState({ user: res.data }, () => {});
       });
   }
 
   render() {
-    console.log(this.state.user.student);
     if (this.state.user.student === undefined) return <p>loading</p>;
     return (
       <div className="main-uploads">
@@ -50,13 +45,16 @@ export class StudentUploads extends Component {
               return (
                 <li className="main-student__content" key={upload}>
                   <a href={link}>
-                    <img className="main-student__image" src={image} />
+                    <img
+                      className="main-student__image"
+                      src={image}
+                      alt="students homework"
+                    />
                   </a>
                 </li>
               );
             }
             if (isPdf(upload)) {
-              console.log("pdf", upload, image);
               return (
                 <PDF key={upload} className="main-student__image" url={image} />
               );

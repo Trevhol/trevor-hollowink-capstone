@@ -73,7 +73,6 @@ export class Student extends Component {
   };
 
   render() {
-    console.log(this.state.uploads);
     return (
       <>
         <div className="main-student">
@@ -114,7 +113,11 @@ export class Student extends Component {
                   return (
                     <li className="main-student__content" key={upload}>
                       <a href={link}>
-                        <img className="main-student__image" src={image} />
+                        <img
+                          className="main-student__image"
+                          src={image}
+                          alt="students homework"
+                        />
                       </a>
                     </li>
                   );
@@ -127,6 +130,7 @@ export class Student extends Component {
                       key={upload}
                       className="main-student__image"
                       url={image}
+                      alt="students homework"
                     />
                   );
                 }

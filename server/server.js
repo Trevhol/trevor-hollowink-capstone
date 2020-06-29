@@ -11,9 +11,6 @@ const app = express();
 // const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
-// serve static files, create react app build
-// app.use(express.static(path.resolve(__dirname, "../client/build")));
-
 const filename = (req, file, cb) => {
   const extension = file.mimetype.split("/")[1];
   cb(null, `${Date.now()}-${uuid()}.${extension}`);
@@ -72,8 +69,6 @@ app.get("/uploads/:id", (req, res) => {
 app.get("/teacher-uploads", (req, res) => {
   const dir = "./public/uploads/teacher/";
   const files = fs.readdirSync(dir);
-  console.log("files", files);
-  console.log("dir", dir);
   files
     .sort(
       (a, b) =>
@@ -180,10 +175,5 @@ app.post("/register", async (req, res) => {
     }
   }
 });
-
-// // All remaining requests return the React app, so it can handle routing.
-// app.get("*", function (_req, res) {
-//   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-// });
 
 app.listen(5000);

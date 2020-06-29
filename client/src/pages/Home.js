@@ -96,7 +96,11 @@ export class Home extends Component {
                         <p className="main-classroom__download">
                           DOWNLOAD ASSIGNMENT
                         </p>
-                        <img className="main-student__image" src={image} />
+                        <img
+                          className="main-student__image"
+                          src={image}
+                          alt="students homework"
+                        />
                       </a>
                     </div>
                   );
